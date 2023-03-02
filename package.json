@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
-  "type": "module",
   "author": {
     "name": "takagimeow",
     "email": "mit@takagi.app",
@@ -65,10 +64,11 @@
     "jest-fetch-mock": "^3.0.3",
     "prettier": "^2.3.2",
     "ts-node": "^10.9.1",
+    "tsconfig-paths": "^3.14.2",
     "typescript": "^4.9.5"
   },
   "dependencies": {
-    "node-fetch": "^3.3.0",
+    "node-fetch": "^2.6.9",
     "reflect-metadata": "^0.1.13",
     "tsyringe": "^4.7.0",
     "zod": "^3.20.6"
