@@ -1,4 +1,4 @@
-import { Env } from "./Env.js";
+import { Env } from "./Env";
 
 export class EnvImpl implements Env {
   getApiKey(): string {

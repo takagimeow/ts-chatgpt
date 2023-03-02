@@ -1,6 +1,6 @@
 import { container } from "tsyringe";
-import { FetchService } from "../fetch/FetchService.js";
-import { FetchServiceImpl } from "../fetch/impl/FetchServiceImpl.js";
+import { FetchService } from "../fetch/FetchService";
+import { FetchServiceImpl } from "../fetch/impl/FetchServiceImpl";
 
 export function networkModule() {
   container.register<FetchService>("FetchService", {

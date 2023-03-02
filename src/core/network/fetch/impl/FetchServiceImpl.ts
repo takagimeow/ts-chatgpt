@@ -1,5 +1,5 @@
 import fetch, { RequestInit } from "node-fetch";
-import { FetchService } from "../FetchService.js";
+import { FetchService } from "../FetchService";
 
 export class FetchServiceImpl implements FetchService {
   async sendRequest<T>(
