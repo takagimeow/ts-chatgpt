@@ -1,13 +1,13 @@
 import "reflect-metadata";
 import { container } from "tsyringe";
-import { envModule } from "./core/common/env/di/envModule.js";
-import { dataModule } from "./core/data/di/dataModule.js";
+import { envModule } from "./core/common/env/di/envModule";
+import { dataModule } from "./core/data/di/dataModule";
 import {
   ChatGPTRepository,
   GPTModel,
   Message,
-} from "./core/data/repository/ChatGPTRepository.js";
-import { networkModule } from "./core/network/di/networkModule.js";
+} from "./core/data/repository/ChatGPTRepository";
+import { networkModule } from "./core/network/di/networkModule";
 
 envModule();
 networkModule();

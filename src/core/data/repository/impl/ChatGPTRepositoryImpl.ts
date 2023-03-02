@@ -1,8 +1,8 @@
 import { container } from "tsyringe";
-import { Env } from "../../../common/env/Env.js";
-import { V1_CHAT_COMPLETIONS_URL } from "../../../common/utils/constants.js";
-import { FetchService } from "../../../network/fetch/FetchService.js";
-import { ChatGPT, ChatGPTRepository, Message } from "../ChatGPTRepository.js";
+import { Env } from "../../../common/env/Env";
+import { V1_CHAT_COMPLETIONS_URL } from "../../../common/utils/constants";
+import { FetchService } from "../../../network/fetch/FetchService";
+import { ChatGPT, ChatGPTRepository, Message } from "../ChatGPTRepository";
 
 export class ChatGPTRepositoryImpl implements ChatGPTRepository {
   protected fetchService: FetchService;
