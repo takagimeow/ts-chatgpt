@@ -1,5 +1,6 @@
 import "reflect-metadata";
 import { container } from "tsyringe";
+import dotenv from "dotenv";
 import { envModule } from "./core/common/env/di/envModule";
 import { dataModule } from "./core/data/di/dataModule";
 import {
@@ -8,6 +9,8 @@ import {
   Message,
 } from "./core/data/repository/ChatGPTRepository";
 import { networkModule } from "./core/network/di/networkModule";
+
+dotenv.config();
 
 envModule();
 networkModule();
