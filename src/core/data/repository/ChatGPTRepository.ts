@@ -1,6 +1,6 @@
 import { z } from "zod";
 export interface ChatGPTRepository {
-  prompt(model: GPTModel, messages: Message[]): Promise<ChatGPT>;
+  prompt(model: GPTModel, messages: Message[]): Promise<ChatGPT | ChatGPTError>;
 }
 
 export const ChatGPT = z.object({
@@ -26,8 +26,17 @@ export const ChatGPT = z.object({
     )
   ),
 });
+export const ChatGPTError = z.object({
+  error: z.object({
+    message: z.string(),
+    type: z.string(),
+    param: z.nullable(z.string()),
+    code: z.nullable(z.string()),
+  }),
+});
 
 export type ChatGPT = z.infer<typeof ChatGPT>;
+export type ChatGPTError = z.infer<typeof ChatGPTError>;
 export type GPTModel = "gpt-3.5-turbo-0301" | "gpt-3.5-turbo" | "gpt-4";
 export type Role = "system" | "assistant" | "user";
 export interface Message {
