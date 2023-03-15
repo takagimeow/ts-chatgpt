@@ -2,7 +2,12 @@ import { container } from "tsyringe";
 import { Env } from "../../../common/env/Env";
 import { V1_CHAT_COMPLETIONS_URL } from "../../../common/utils/constants";
 import { FetchService } from "../../../network/fetch/FetchService";
-import { ChatGPT, ChatGPTRepository, Message } from "../ChatGPTRepository";
+import {
+  ChatGPT,
+  ChatGPTError,
+  ChatGPTRepository,
+  Message,
+} from "../ChatGPTRepository";
 
 export class ChatGPTRepositoryImpl implements ChatGPTRepository {
   protected fetchService: FetchService;
@@ -41,6 +46,9 @@ export class ChatGPTRepositoryImpl implements ChatGPTRepository {
   }
 
   private parser(json: unknown) {
+    if (json instanceof Object && "error" in json) {
+      return ChatGPTError.parse(json);
+    }
     const data = ChatGPT.parse(json);
     return data;
   }
