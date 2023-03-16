@@ -5,7 +5,7 @@ import type {
   ChatGPT,
   ChatGPTError,
 } from "../build/core/data/repository/ChatGPTRepository";
-import mockFetch, { MockResponse } from "../src/__mocks__/node-fetch";
+import mockFetch, { MockResponse } from "../__mocks__/node-fetch";
 
 jest.mock("node-fetch");
 
