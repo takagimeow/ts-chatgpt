@@ -59,6 +59,12 @@ For detailed specifications of the ChatGPT API, please refer to [this document](
 ## Response Type
 
 There are two types of return values for the `prompt` function: `ChatGPT` and `ChatGPTError`.
+
+| Type           | Description                                             |
+| -------------- | ------------------------------------------------------- |
+| `ChatGPT`      | The response from the ChatGPT API.                      |
+| `ChatGPTError` | The response from the ChatGPT API when an error occurs. |
+
 `ChatGPT` by type is as follows:
 
 ```ts
@@ -85,7 +91,7 @@ type ChatGPT = {
 };
 ```
 
-Next, ChatGPTError as a type is as follows:
+Next, `ChatGPTError` as a type is as follows:
 
 ```ts
 type ChatGPTError = {
