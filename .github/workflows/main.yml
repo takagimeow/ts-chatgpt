@@ -54,6 +54,9 @@ jobs:
       - name: Install dependencies
         uses: bahmutov/npm-install@v1
 
+      - name: Build
+        run: npm run build
+
       - name: Test
         run: npm run test -- --ci --coverage --maxWorkers=2
 
