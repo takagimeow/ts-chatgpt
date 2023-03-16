@@ -80,3 +80,5 @@ jobs:
 
       - name: Lint
         run: npm run lint
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
