@@ -7,6 +7,7 @@ import {
   ChatGPTError,
   ChatGPTRepository,
   Message,
+  PromptOptions,
 } from "../ChatGPTRepository";
 
 export class ChatGPTRepositoryImpl implements ChatGPTRepository {
@@ -21,7 +22,7 @@ export class ChatGPTRepositoryImpl implements ChatGPTRepository {
     this.apiKey = this.env.getApiKey();
   }
 
-  async prompt(model: string, messages: Message[]) {
+  async prompt(model: string, messages: Message[], options: PromptOptions) {
     const headers = this.prepareAuthHeaders(this.apiKey);
     const response = await this.fetchService.sendRequest(
       this.url,
@@ -31,6 +32,7 @@ export class ChatGPTRepositoryImpl implements ChatGPTRepository {
         body: JSON.stringify({
           model,
           messages,
+          ...options,
         }),
       },
       this.parser

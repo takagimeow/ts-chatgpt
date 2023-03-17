@@ -15,9 +15,9 @@ It has been confirmed to work with [Remix](https://github.com/remix-run/remix)'s
 
 ## Usage
 
-| Function | Description                     | Parameters                                                                                                   | Return                     |
-| -------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------ | -------------------------- |
-| `prompt` | Get a response from ChatGPT API | `props` - The props contains an model name you want to use for the ChatGPT API and an array of Message type. | `Promise<ChatGPTResponse>` |
+| Function | Description                     | Parameters                                                                                                                      | Return                     |
+| -------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| `prompt` | Get a response from ChatGPT API | `props` - The props contains an model name you want to use for the ChatGPT API, an array of Message type and an options object. | `Promise<ChatGPTResponse>` |
 
 When calling this function, be sure to set the `OPENAI_API_KEY` environment variable to the API key you received from OpenAI.
 
@@ -33,10 +33,23 @@ const response = await prompt({
         "In the style of Nicholas Sparks, please summarize the following introductory You are limited to 140 characters. 'I love Android and I develop applications using Kotlin and Jetpack Compose.'",
     },
   ],
+  options: {
+    temperature: 0.1,
+  },
 });
 ```
 
 Since `dotenv.config()` is automatically called internally, developers do not need to install dotenv to load OPENAI_API_KEY themselves.
+
+## Props
+
+When calling `prompt()`, you must pass an object containing the following as an argument:
+
+| Key        | Description                                         | Type            | Required |
+| ---------- | --------------------------------------------------- | --------------- | -------- |
+| `model`    | The model name you want to use for the ChatGPT API. | `string`        | ✅       |
+| `messages` | An array of Message type.                           | `Message[]`     | ✅       |
+| `options`  | An object containing options.                       | `PromptOptions` | ❌       |
 
 The following values are currently available for the model
 More will be added in the future.
@@ -53,6 +66,12 @@ The following values can be specified by the user as messages to be passed to th
 | --------- | --------------------------- | ------------------------------------- | -------- |
 | `role`    | The role of the message.    | `"system"`, `"assistant"` or `"user"` | ✅       |
 | `content` | The content of the message. | `string`                              | ✅       |
+
+The following values can be specified by the user as options to be passed to the prompt function.
+
+| Key           | Description                                                                                                                                                                                                                                                                                                                                               | Type     |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| `temperature` | **The lower the temperature, the more accurate the results.** API temperatures set to 0 or close to 0 (e.g. 0.1 or 0.2) tend to give better results in most cases; with GPT-3, the higher the temperature, the more creative and random the results, while with Codex, the higher the temperature, the more truly random and erratic the response can be. | `number` |
 
 For detailed specifications of the ChatGPT API, please refer to [this document](https://platform.openai.com/docs/api-reference/chat/create).
 
