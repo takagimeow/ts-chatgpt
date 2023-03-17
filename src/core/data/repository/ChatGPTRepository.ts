@@ -1,6 +1,10 @@
 import { z } from "zod";
 export interface ChatGPTRepository {
-  prompt(model: GPTModel, messages: Message[]): Promise<ChatGPT | ChatGPTError>;
+  prompt(
+    model: GPTModel,
+    messages: Message[],
+    options: PromptOptions
+  ): Promise<ChatGPT | ChatGPTError>;
 }
 
 export const ChatGPT = z.object({
@@ -42,4 +46,7 @@ export type Role = "system" | "assistant" | "user";
 export interface Message {
   role: Role;
   content: string;
+}
+export interface PromptOptions {
+  temperature?: number;
 }
