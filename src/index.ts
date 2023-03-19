@@ -4,6 +4,8 @@ import dotenv from "dotenv";
 import { envModule } from "./core/common/env/di/envModule";
 import { dataModule } from "./core/data/di/dataModule";
 import {
+  ChatGPT,
+  ChatGPTError,
   ChatGPTRepository,
   GPTModel,
   Message,
@@ -30,3 +32,5 @@ export async function prompt({
   const response = await repository.prompt(model, messages, options);
   return response;
 }
+
+export type { ChatGPT, ChatGPTError, GPTModel, Message, PromptOptions };
