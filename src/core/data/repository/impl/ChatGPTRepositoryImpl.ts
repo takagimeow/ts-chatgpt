@@ -23,7 +23,9 @@ export class ChatGPTRepositoryImpl implements ChatGPTRepository {
   }
 
   async prompt(model: string, messages: Message[], options: PromptOptions) {
-    const headers = this.prepareAuthHeaders(this.apiKey);
+    // Extract only apiKey from options
+    const { apiKey, ...restOptions } = options;
+    const headers = this.prepareAuthHeaders(apiKey ?? this.apiKey);
     const response = await this.fetchService.sendRequest(
       this.url,
       {
@@ -32,7 +34,7 @@ export class ChatGPTRepositoryImpl implements ChatGPTRepository {
         body: JSON.stringify({
           model,
           messages,
-          ...options,
+          ...restOptions,
         }),
       },
       this.parser
