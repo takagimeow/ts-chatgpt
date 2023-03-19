@@ -1,6 +1,7 @@
 # ts-chatgpt
 
 [![npm version](https://badge.fury.io/js/ts-chatgpt.svg)](https://badge.fury.io/js/ts-chatgpt)
+![main workflow](https://github.com/takagimeow/ts-chatgpt/actions/workflows/main.yml/badge.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A library that is created to receive pure responses that are typed using the official [ChatGPT API](https://platform.openai.com/docs/guides/chat) by [OpenAI](https://openai.com/).
@@ -71,6 +72,7 @@ The following values can be specified by the user as options to be passed to the
 
 | Key           | Description                                                                                                                                                                                                                                                                                                                                               | Type     |
 | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| `apiKey`      | API key that can be obtained from the [OpenAI configuration page](https://platform.openai.com/account/api-keys). You can omit this value by setting the `OPENAI_API_KEY` environment variable.                                                                                                                                                            | `string` |
 | `temperature` | **The lower the temperature, the more accurate the results.** API temperatures set to 0 or close to 0 (e.g. 0.1 or 0.2) tend to give better results in most cases; with GPT-3, the higher the temperature, the more creative and random the results, while with Codex, the higher the temperature, the more truly random and erratic the response can be. | `number` |
 
 For detailed specifications of the ChatGPT API, please refer to [this document](https://platform.openai.com/docs/api-reference/chat/create).
