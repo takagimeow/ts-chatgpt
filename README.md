@@ -1,6 +1,7 @@
 # ts-chatgpt
 
 [![npm version](https://badge.fury.io/js/ts-chatgpt.svg)](https://badge.fury.io/js/ts-chatgpt)
+![main workflow](https://github.com/takagimeow/ts-chatgpt/actions/workflows/main.yml/badge.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A library that is created to receive pure responses that are typed using the official [ChatGPT API](https://platform.openai.com/docs/guides/chat) by [OpenAI](https://openai.com/).
