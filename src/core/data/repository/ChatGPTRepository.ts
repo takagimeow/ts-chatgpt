@@ -48,5 +48,6 @@ export interface Message {
   content: string;
 }
 export interface PromptOptions {
+  apiKey?: string;
   temperature?: number;
 }
